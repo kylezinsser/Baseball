@@ -1,0 +1,194 @@
+/* basic body stlying */
+body {
+    background-color: #ECECEC;
+    height: 100%;
+    margin: 0 auto;
+}
+/* end body styles */
+
+/* header bar styles */
+header {
+    box-shadow: 3px 5px 8px #555555;
+    background-color: #041E42;
+    color: #FFFFFF;
+    font-family: Helvetica, Arial, sans-serif;
+    font-size: 2.5rem;
+    height: 100px;
+    min-width: 400px;
+    /* fixed header position so that it stays on top */
+    position: fixed;
+    width: 100%;
+    z-index: 999;
+}
+
+#header_logo {
+    display: inline-block;
+    padding-left: 40px;
+    text-align: center;
+}
+
+#header_logo>img {
+    max-height: 70px;
+    padding-bottom: 5px;
+    vertical-align: middle;
+}
+
+#header_title {
+    display: inline-block;
+    line-height: 100px;
+    opacity: 0.75;
+    text-align: center;
+    white-space: nowrap;
+}
+/* end header bar styles */
+
+main {
+    background-color: #FFFFFF;
+    font-family: Helvetica, Arial, sans-serif;
+    margin: 0 auto;
+    padding: 100px 20px 50px 20px;
+    width: 70%;
+}
+
+h1 {
+    color: #041E42;
+    margin: 0;
+    padding: 20px 0 15px 20px;
+    white-space: nowrap;
+}
+
+/* table styles */
+table {
+    border-collapse: collapse;
+    border: 1px solid #041E42;
+    box-sizing: border-box;
+    margin-bottom: 40px;
+    min-width: 300px;
+    width: 100%;
+}
+
+table th, table td {
+    border: 1px solid #8080FF;
+    padding: 0 5px;
+}
+
+table tr {
+    height: 30px;
+}
+
+/* these spans will display the rankings once we have calculated them */
+thead th > span {
+    font-size: 0.8rem;
+    letter-spacing: 0.1rem;
+    opacity: 0.7;
+}
+th > span {
+    float: right;
+    padding-right: 5px;
+}
+
+thead th {
+    border-collapse: separate;
+    background-color: #041E42;
+    border-bottom: 1px solid #800000;
+    color: #FFFFFF;
+    /* letter spacing is to help the uppercase labels be more legible */
+    letter-spacing: 0.2rem;
+    /* sticky position will keep the league and division headers visible while scrolling */
+    position: sticky; 
+    text-transform: uppercase;
+    top: 98px;
+}
+
+.division_subheader th {
+    background-color: #002D72;
+    color: #FFFFFF;
+    /* letter spacing is to help the uppercase labels be more legible */
+    letter-spacing: 0.1rem;
+    /* sticky position will keep the league and division headers visible while scrolling */
+    position: sticky; 
+    text-transform: uppercase;
+    top: 136px;
+}
+
+.keys_subheader th {
+    color: #041E42;
+    font-weight: bold;
+    text-align: left
+}
+
+thead > tr, .division_subheader {
+    height: 40px;
+}
+/* end table styles */
+
+/* position the loading icons where the content will go */
+.loading_wrapper {
+    position: relative;
+    text-align: center;
+    top: -30px;
+    width: 100%;
+}
+
+/* basic media queries to help responsiveness on tablet devices */
+@media only screen and (max-width: 1000px) {
+    body {
+        background-color: #FFFFFF;
+    }
+    header {
+        height: 50px;
+    }
+    #header_logo {
+        padding-left: 10px;
+        line-height: 50px;
+    }
+    #header_logo > img {
+        max-height: 30px;
+    }
+    #header_title {
+        font-size: 1.25rem;
+        line-height: 50px;
+    }
+    main {
+        -webkit-box-sizing: border-box; /* Safari/Chrome */
+        -moz-box-sizing: border-box; /* Firefox */
+        box-sizing: border-box;
+        padding-top: 50px;
+        padding-left: 30px;
+        padding-right: 30px;
+        width: 100%;
+    }
+    h1 {
+        margin: 0;
+        text-align: center;
+    }
+    /* the top attribute for the sticky headers need to be adjusted due to the reduced header height */
+    thead th {
+        top: 48px;
+    }
+    .division_subheader th {
+        top: 86px;
+    }
+}
+
+/* basic media queries to help responsiveness on most phones */
+@media only screen and (max-width: 400px) {
+    #header_title {
+        font-size: 1rem;
+    }
+    main {
+        padding-left: 0;
+        padding-right: 0;
+        margin-left: 0;
+        margin-right: 0;
+        width: 100%;
+    }
+    h1 {
+        padding-top: 20px;
+        font-size: 1.5rem;
+    }
+    /* sticky position makes collapsed borders invisible in some mobile browsers, so scale up slightly to fix it */
+    thead th, .division_subheader th {
+        transform:scale(1.01);
+    }
+}
